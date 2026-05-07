@@ -2,6 +2,7 @@
   "name": "blue-earl-technologies",
   "version": "1.0.0",
   "description": "Blue Earl Technologies - Innovation for Essential Industries",
+  "homepage": "https://JerielDoku.github.io/Blue_Earl_Technologies",
   "private": true,
   "dependencies": {
     "react": "^18.2.0",

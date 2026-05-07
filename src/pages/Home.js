@@ -14,13 +14,19 @@ const INDUSTRY_LABELS = TRUST_ITEMS.map(item => item.label);
 
 export default function Home() {
   const [spinText, setSpinText] = useState(INDUSTRY_LABELS[0]);
+  const [isFading, setIsFading] = useState(false);
 
   useEffect(() => {
     let index = 0;
     const interval = setInterval(() => {
-      index = (index + 1) % INDUSTRY_LABELS.length;
-      setSpinText(INDUSTRY_LABELS[index]);
+      setIsFading(true);
+      setTimeout(() => {
+        index = (index + 1) % INDUSTRY_LABELS.length;
+        setSpinText(INDUSTRY_LABELS[index]);
+        setIsFading(false);
+      }, 500);
     }, 3000);
+
     return () => clearInterval(interval);
   }, []);
 
@@ -28,7 +34,15 @@ export default function Home() {
     <HeroSection
       title={{
         main: 'Modernizing',
-        accent: spinText,
+        accent: (
+          <span style={{ 
+            opacity: isFading ? 0 : 1, 
+            transition: 'opacity 0.5s ease-in-out',
+            display: 'inline-block'
+          }}>
+            {spinText}
+          </span>
+        ),
         suffix: 'for the Next Generation.'
       }}
       subtitle="We design, build, and implement cutting-edge software strategies that streamline operations for essential industries."
