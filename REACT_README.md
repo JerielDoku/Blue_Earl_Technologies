@@ -38,7 +38,7 @@ package.json             # Project dependencies and scripts
 
 1. Navigate to the project directory:
 ```bash
-cd file-main
+
 ```
 
 2. Install dependencies:
